@@ -30,7 +30,7 @@ class AvailabilityController extends Controller
     {
         $validator = Validator::make($request->all(), ['date' => 'required|date']);
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()->first()], 401);
+            return response()->json(['error' => $validator->errors()], 422);
         }
         $response = $this->availabilityServices->getSlots($request->date);
         return response()->json(['date' => $request->date, 'slots' => $response]);

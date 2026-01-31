@@ -35,7 +35,7 @@ class BookingController extends Controller
             'start_time' => 'required|date_format:H:i:s',
         ]);
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->errors()->first()], 401);
+            return response()->json(['error' => $validator->errors()], 422);
         }
         $response = $this->bookingServices->bookSlot($request->all());
         return response()->json($response);
