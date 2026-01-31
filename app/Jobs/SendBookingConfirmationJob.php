@@ -31,7 +31,7 @@ class SendBookingConfirmationJob
      */
     public function handle()
     {
-        Mail::to($this->booking['email'])
-            ->send(new BookingConfirmationMail($this->booking));
+        // Mail::to($this->booking['email'])
+        //     ->send(new BookingConfirmationMail($this->booking));
     }
 }
